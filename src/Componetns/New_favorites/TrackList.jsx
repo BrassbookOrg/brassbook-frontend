@@ -1,9 +1,56 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './trackList.module.css';
 import musics from '../../assets/data';
 import { timer } from './timer';
 
-const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
+
+
+
+const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
+
+    const [musicList, setMusics] = useState(musics)
+    let musicsFiltered = musics
+    let nAlphabet = 0
+    let nDuration = 0
+
+    // function DurationFiltration(n) {
+    //     switch (n) {
+    //         case 0:
+    //             break
+    //         case 1:
+
+    //     }
+    // }
+
+    function AlphabetFiltration(n) {
+        switch (n) {
+            case 0: {
+                break
+            }
+            case 1: {
+                musicsFiltered = musicsFiltered.sort((a, b) => a.title.localeCompare(b.title))
+                setMusics(musicsFiltered)
+                break
+            }
+            case 2: {
+                musicsFiltered = musicsFiltered.sort((a, b) => b.title.localeCompare(a.title))
+                setMusics(musicsFiltered)
+                break
+            }
+        }
+    }
+
+    function AplhabetHandler() {
+        if (nAlphabet === 2) {
+            nAlphabet = 0
+        } else {
+            nAlphabet += 1
+        }
+        console.log(nAlphabet)
+        AlphabetFiltration(nAlphabet)
+    }
+
+
     return (
         <div className={styles.tracklist}>
             <div className={styles.header}>
@@ -21,7 +68,7 @@ const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
                     <span className='_icon-music-list'></span>
                 </div>
                 <div className={styles.sort}>
-                    <button className={styles.sortAlf}>
+                    <button onClick={() => {AplhabetHandler()}} className={styles.sortAlf}>
                         <img src="/src/assets/images/alfavit.svg" alt="" />
                         <span>по алфавиту</span>
                     </button>
@@ -37,7 +84,7 @@ const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
             </div>
             <ul className={styles.list}>
                 {
-                    musics.map((music, index) => (
+                    musicList.map((music, index) => (
                         <li key={music.id} className={`${musicNumber === index ? styles.playing : ''}`}>
                             <div className={styles.row}>
                                 <button onClick={() => setMusicNumber(index)} className={styles.descript}>
@@ -89,19 +136,19 @@ const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
 
 export default TrackList;
 
-const Duration = ({music}) => {
+const Duration = ({ music }) => {
     const [duration, setDuration] = useState(0);
 
     useEffect(() => {
         const audio = new Audio(music.src);
-        audio.onloadedmetadata = function(){
-            if(audio.readyState > 0){
+        audio.onloadedmetadata = function () {
+            if (audio.readyState > 0) {
                 setDuration(audio.duration);
             }
         }
     }, [music])
 
-    return(
+    return (
         <span className={styles.duration}>{timer(duration)}</span>
     )
 }
