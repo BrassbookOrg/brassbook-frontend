@@ -9,9 +9,8 @@ import { timer } from './timer';
 const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
 
     const [musicList, setMusics] = useState(musics)
-    let musicsFiltered = musics
-    let nAlphabet = 0
-    let nDuration = 0
+    const [nAlphabet, setNAlphabet] = useState(0)
+    const [nDuration, setNDuration] = useState(0)
 
     // function DurationFiltration(n) {
     //     switch (n) {
@@ -23,31 +22,29 @@ const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
     // }
 
     function AlphabetFiltration(n) {
+        let sortedList = [...musicList]; // Create a new array to avoid mutating the original
+        
         switch (n) {
             case 0: {
+                sortedList = [...musics]; // Reset to original order
                 break
             }
             case 1: {
-                musicsFiltered = musicsFiltered.sort((a, b) => a.title.localeCompare(b.title))
-                setMusics(musicsFiltered)
+                sortedList.sort((a, b) => a.title.localeCompare(b.title))
                 break
             }
             case 2: {
-                musicsFiltered = musicsFiltered.sort((a, b) => b.title.localeCompare(a.title))
-                setMusics(musicsFiltered)
+                sortedList.sort((a, b) => b.title.localeCompare(a.title))
                 break
             }
         }
+        setMusics(sortedList)
     }
 
     function AplhabetHandler() {
-        if (nAlphabet === 2) {
-            nAlphabet = 0
-        } else {
-            nAlphabet += 1
-        }
-        console.log(nAlphabet)
-        AlphabetFiltration(nAlphabet)
+        const newValue = nAlphabet === 2 ? 0 : nAlphabet + 1;
+        setNAlphabet(newValue);
+        AlphabetFiltration(newValue);
     }
 
 
