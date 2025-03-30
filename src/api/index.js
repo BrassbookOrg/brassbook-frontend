@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_URl = 'https://cors-anywhere.herokuapp.com/http://45.82.153.53:8000'
+export const API_URl = 'https://cors-anywhere.herokuapp.com/http://147.45.109.174:8000/'
 // export const API_URl = 'http://localhost:8080/api';
 export const $api = axios.create({
   withCredentials: false,

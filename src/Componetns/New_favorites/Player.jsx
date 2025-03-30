@@ -2,26 +2,34 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from './card.module.css';
 import musics from '../../assets/data';
 import {timer} from './timer';
+import {$api} from "../../api/index.js";
 
-const Card = ({props: { musicNumber, setMusicNumber }}) => {
+const Player = ({props: { musicNumber, setMusicNumber }}) => {
     const [duration, setDuration] = useState(1);
     const [currentTime, setCurrentTime] = useState(0);
     const [play, setPlay] = useState(false);
     const [playbackRate, setPlaybackRate] = useState(1.0);
     const [pitch, setPitch] = useState(0);
+    const [isRecording, setIsRecording] = useState(false);
+    const [recordedBlob, setRecordedBlob] = useState(null);
     
     const audioRef = useRef();
     const audioContextRef = useRef(null);
     const sourceNodeRef = useRef(null);
     const gainNodeRef = useRef(null);
+    const mediaRecorderRef = useRef(null);
+    const recordedChunksRef = useRef([]);
     
     useEffect(() => {
         return () => {
             if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
                 audioContextRef.current.close();
             }
+            if (mediaRecorderRef.current && isRecording) {
+                mediaRecorderRef.current.stop();
+            }
         };
-    }, []);
+    }, [isRecording]);
     
     useEffect(() => {
         if (audioRef.current) {
@@ -35,6 +43,78 @@ const Card = ({props: { musicNumber, setMusicNumber }}) => {
         }
     }, [pitch]);
     
+    const startRecording = () => {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                // Try to use MP3 format if supported, otherwise fall back to default
+                let options = {};
+                try {
+                    const supportsMp3 = MediaRecorder.isTypeSupported('audio/mpeg');
+                    if (supportsMp3) {
+                        options = { mimeType: 'audio/mpeg' };
+                    }
+                } catch (e) {
+                    console.log('MP3 recording not supported, using default format');
+                }
+                
+                mediaRecorderRef.current = new MediaRecorder(stream, options);
+                recordedChunksRef.current = [];
+                
+                // Determine file extension based on actual MIME type
+                const fileExtension = mediaRecorderRef.current.mimeType.includes('audio/mpeg') ? 'mp3' : 'webm';
+                
+                mediaRecorderRef.current.ondataavailable = (e) => {
+                    if (e.data.size > 0) {
+                        recordedChunksRef.current.push(e.data);
+                    }
+                };
+                
+                mediaRecorderRef.current.onstop = () => {
+                    const blob = new Blob(recordedChunksRef.current, { type: mediaRecorderRef.current.mimeType });
+                    recordedChunksRef.current = [];
+                    sendRecording(blob, fileExtension);
+                    
+                    // Stop all tracks to release microphone
+                    stream.getTracks().forEach(track => track.stop());
+                };
+                
+                mediaRecorderRef.current.start();
+                setIsRecording(true);
+            });
+    };
+
+    const stopRecording = () => {
+        if (mediaRecorderRef.current && isRecording) {
+            mediaRecorderRef.current.stop();
+            setIsRecording(false);
+        }
+    };
+
+    const sendRecording = async (blob, fileExtension = 'webm') => {
+        try {
+            const formData = new FormData();
+            const masterBlobThumbnail = musics[musicNumber].thumbnail
+            
+            const masterMusicResponse = await fetch(masterBlobThumbnail);
+            const masterMusicBlob = await masterMusicResponse.blob();
+            
+            formData.append('file1', masterMusicBlob, 'file1.mp3');
+            formData.append('file2', blob, `file2.${fileExtension}`);
+            
+            const response = $api.post("api/v1/compare_melodies", formData)
+            
+            if (response.ok) {
+                alert('Запись успешно отправлена');
+            } else {
+                console.error('Failed to send recording');
+                alert('Не удалось отправить запись');
+            }
+        } catch (error) {
+            console.error('Error sending recording:', error);
+            alert('Ошибка при отправке записи');
+        }
+    };
+
     function handleLoadStart(e){
         const src = e.nativeEvent.srcElement.src;
         const audio = new Audio(src);
@@ -45,8 +125,8 @@ const Card = ({props: { musicNumber, setMusicNumber }}) => {
         }
 
         if(play){
-            audioRef.current.play()
-        };
+            audioRef.current.play();
+        }
         
         audioRef.current.playbackRate = playbackRate;
     }
@@ -179,6 +259,17 @@ const Card = ({props: { musicNumber, setMusicNumber }}) => {
                         <span>Скачать композицию</span>
                     </p>
                 </button>
+                
+                <button 
+                    className={`${styles.record} ${isRecording ? styles.recording : ''}`}
+                    onClick={isRecording ? stopRecording : startRecording}
+                >
+                    <p>
+                        <span className={isRecording ? "_icon-stop" : "_icon-mic"}></span>
+                        <span>{isRecording ? "Остановить запись" : "Записать с микрофона"}</span>
+                    </p>
+                </button>
+                
                 <div className={styles.rate}>
                     <p>Оцени это произведение</p>
                     <div className={styles.rate__container}>
@@ -206,6 +297,6 @@ const Card = ({props: { musicNumber, setMusicNumber }}) => {
     )
 }
 
-export default Card;
+export default Player;
 
-export {Card};
+export {Player};

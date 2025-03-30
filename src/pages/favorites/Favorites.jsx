@@ -1,11 +1,9 @@
+import React, { useState } from "react";
+
 import SideMenu from "../../Componetns/sideMenu/SideMenu.jsx";
 import styles from "./favorites.module.css"
-import FavoritesPage from "../../Componetns/Favorites/FavoritesPage.jsx";
-import SearchInput from "../../Componetns/Favorites/SearchInput.jsx";
-import FilterGroup from "../../Componetns/Favorites/FilterGroup.jsx";
 
-import Card from "../../Componetns/New_favorites/Card.jsx";
-import React, { useState } from "react";
+import Player from "../../Componetns/New_favorites/Player.jsx";
 import TrackList from "../../Componetns/New_favorites/TrackList.jsx";
 import "./iconfont.css";
 function Favorites(props) {
@@ -15,7 +13,7 @@ function Favorites(props) {
       <SideMenu activeSection={'favorites'}/>
       <div className={styles.favorites__content}>
         <TrackList props={{musicNumber, setMusicNumber}}/>
-        <Card props={{musicNumber, setMusicNumber}}/>
+        <Player props={{musicNumber, setMusicNumber}}/>
       </div>
     </main>
   );

@@ -7,7 +7,7 @@ import Traks from "../../Componetns/Traks/Traks.jsx";
 // import Player from "../../Componetns/player/Player.jsx";
 import AlbumListWidget from "../../Componetns/Albums/AlbumListWidget/AlbumListWidget.jsx";
 // import Favorites from '../favorites/Favorites.jsx';
-import {Card as Player} from "../../Componetns/New_favorites/Card.jsx"
+import Player from "../../Componetns/New_favorites/Player.jsx"
 import {useState} from "react";
 
 function User(props) {
@@ -22,7 +22,6 @@ function User(props) {
                     <Traks/>
                     <AlbumListWidget/>
                 </div>
-
             </div>
             <div className={styles.user__side_content}>
                 <Voicerecorder/>

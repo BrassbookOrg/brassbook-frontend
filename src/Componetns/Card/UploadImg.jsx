@@ -11,7 +11,7 @@ import heartVuesax from "../../assets/img/heart.svg";
 import arrowVuesax from "../../assets/img/right-arrow-vuesax.svg";
 
 const UploadAndDisplayImage = () => {
-    const defaultImageUrl = 'фото.png'; // Замени на путь к дефолтному изображению
+    const defaultImageUrl = 'фото 2.png'; // Замени на путь к дефолтному изображению
     const dispatch = useDispatch();
 
     const [isEditUserModalOpen, setIsEditUserModalOpen] = useState(false);
@@ -80,15 +80,15 @@ const UploadAndDisplayImage = () => {
                     <div className={classes.div__inf}>
                         <div>
                             <p className={classes.p__head}>Имя</p>
-                            <p className={classes.p__text}>{user?.first_name ? user.first_name : '<Имя не задано>'}</p>
+                            <p className={classes.p__text}>{user?.first_name ? user.first_name : 'Иван'}</p>
                         </div>
                         <div>
                             <p className={classes.p__head}>Фамилия</p>
-                            <p className={classes.p__text}>{user?.second_name ? user.second_name : '<Фамилия не задана>'}</p>
+                            <p className={classes.p__text}>{user?.second_name ? user.second_name : 'Иванов'}</p>
                         </div>
                         <div>
                             <p className={classes.p__head}>Почта</p>
-                            <p className={classes.p__text}>{user ? user.email : 'example@gmail.com'}</p>
+                            <p className={classes.p__text}>{user ? user.email : 'pelamore@mail.ru'}</p>
                         </div>
                     </div>
                     <div className={classes.div__description}>
