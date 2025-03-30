@@ -4,6 +4,47 @@ import musics from '../../assets/data';
 import { timer } from './timer';
 
 const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
+
+    const [musicList, setMusics] = useState(musics)
+    const [nAlphabet, setNAlphabet] = useState(0)
+    const [nDuration, setNDuration] = useState(0)
+
+    // function DurationFiltration(n) {
+    //     switch (n) {
+    //         case 0:
+    //             break
+    //         case 1:
+
+    //     }
+    // }
+
+    function AlphabetFiltration(n) {
+        let sortedList = [...musicList]; // Create a new array to avoid mutating the original
+        
+        switch (n) {
+            case 0: {
+                sortedList = [...musics]; // Reset to original order
+                break
+            }
+            case 1: {
+                sortedList.sort((a, b) => a.title.localeCompare(b.title))
+                break
+            }
+            case 2: {
+                sortedList.sort((a, b) => b.title.localeCompare(a.title))
+                break
+            }
+        }
+        setMusics(sortedList)
+    }
+
+    function AplhabetHandler() {
+        const newValue = nAlphabet === 2 ? 0 : nAlphabet + 1;
+        console.log(nAlphabet);
+        setNAlphabet(newValue);
+        AlphabetFiltration(newValue);
+    }
+
     return (
         <div className={styles.tracklist}>
             <div className={styles.header}>
@@ -21,7 +62,7 @@ const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
                     <span className='_icon-music-list'></span>
                 </div>
                 <div className={styles.sort}>
-                    <button className={styles.sortAlf}>
+                    <button className={styles.sortAlf} onClick={() => {AplhabetHandler()}}>
                         <img src="/src/assets/images/alfavit.svg" alt="" />
                         <span>по алфавиту</span>
                     </button>
@@ -37,7 +78,7 @@ const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
             </div>
             <ul className={styles.list}>
                 {
-                    musics.map((music, index) => (
+                    musicList.map((music, index) => (
                         <li key={music.id} className={`${musicNumber === index ? styles.playing : ''}`}>
                             <div className={styles.row}>
                                 <button onClick={() => setMusicNumber(index)} className={styles.descript}>
