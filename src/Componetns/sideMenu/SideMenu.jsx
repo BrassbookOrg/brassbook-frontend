@@ -79,7 +79,7 @@ function SideMenu({activeSection}) {
           </svg>
           Произведения
         </Link>
-        <Link className={classes['menu__item']} to='#'>
+        <Link className={`${classes['menu__item']} ${activeSection === 'library' ? classes['menu__item_active'] : ''}`}  to='/library'>
           <svg
             width="24.000000"
             height="24.000000"
