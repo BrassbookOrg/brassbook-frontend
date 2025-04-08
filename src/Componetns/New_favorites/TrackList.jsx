@@ -3,10 +3,8 @@ import styles from './trackList.module.css';
 import musics from '../../assets/data';
 import { timer } from './timer';
 
+const TrackList = ({props: {musicNumber, setMusicNumber}}) => {
 
-
-
-const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
 
     const [musicList, setMusics] = useState(musics)
     const [nAlphabet, setNAlphabet] = useState(0)
@@ -47,7 +45,6 @@ const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
         AlphabetFiltration(newValue);
     }
 
-
     return (
         <div className={styles.tracklist}>
             <div className={styles.header}>
@@ -65,7 +62,7 @@ const TrackList = ({ props: { musicNumber, setMusicNumber } }) => {
                     <span className='_icon-music-list'></span>
                 </div>
                 <div className={styles.sort}>
-                    <button onClick={() => {AplhabetHandler()}} className={styles.sortAlf}>
+                    <button className={styles.sortAlf} onClick={() => {AplhabetHandler()}}>
                         <img src="/src/assets/images/alfavit.svg" alt="" />
                         <span>по алфавиту</span>
                     </button>
