@@ -1,25 +1,20 @@
 import { useState } from "react";
-
 import SideMenu from "../../Componetns/sideMenu/SideMenu";
-import AlbumLibrary from "../../Componetns/AlbumLibrary/AlbumLibrary";
-import albumJSON from "./albums.json"
-import TrackList from "../../Componetns/New_favorites/TrackList";
+import NoteList from "../../Componetns/NoteList/NoteList";
+import NoteAlbumList from "../../Componetns/NoteAlbumList/NoteAlbumList";
 
-function Library() {
-    const [musicNumber, setMusicNumber] = useState(0);
+function Library(props) {
+    const [selectedAlbum, setSelectedAlbum] = useState(null)
+
     return (
-        <main>
+        <>
             <SideMenu activeSection={'library'} />
             <div>
-                <div>
-                    <h2>Подборки произведений и композицийы</h2>
-                    <p>Самые востребованные музыкальные произведения, собранные по интересам и тематикам.</p>
-                    <AlbumLibrary list={albumJSON} />
-                </div>
-                <TrackList props={{musicNumber, setMusicNumber}} />
+                <NoteAlbumList />
+                <NoteList list={null} />
             </div>
-        </main>
-    );
-}
+        </>
+    )
+};
 
 export default Library;
