@@ -139,6 +139,12 @@
 .progress{
     padding: 10px 0;
 }
+
+.progress_bar {
+    border-radius: 30px;
+    background: rgba(255, 198, 42, 0.2);
+}
+
 .progress input{
     width: 100%;
 }

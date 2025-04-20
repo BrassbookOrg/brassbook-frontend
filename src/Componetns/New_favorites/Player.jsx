@@ -200,7 +200,7 @@ const Player = ({props: { musicNumber, setMusicNumber }}) => {
                 </div>
                 
                 <div className={styles.progress}>
-                    <input className="styled-slider slider-progress" type="range" min={0} max={duration} value={currentTime} onChange={e => changeCurrentTime(e)} />
+                    <input className={styles.progress_bar} type="range" min={0} max={duration} value={currentTime} onChange={e => changeCurrentTime(e)} />
                     <div className={styles.timer}>
                         <span>{timer(currentTime)}</span>
                         <span>{timer(duration)}</span>
