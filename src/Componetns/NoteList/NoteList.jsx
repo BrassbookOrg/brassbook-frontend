@@ -1,10 +1,20 @@
 import NoteItem from "../NoteItem/NoteItem";
 import { useState, useEffect } from "react";
-import data from "./NoteListExample.json"
+import data from "./NoteListExample.json";
+import styles from "./NoteList.module.css";
+import exampleJPEG from "../../assets/forLibrary/example.jpeg";
+import examplePDF from "../../assets/forLibrary/example.pdf";
+
+const exampleMAP = {
+    'example.jpeg': exampleJPEG,
+    'example.pdf': examplePDF
+}
 
 function NoteList({ list }) {
     const [nAlphabet, setNAlphabet] = useState(0)
     const [searchQuery, setSearchQuery] = useState('')
+    const [alphabetIsActive, setAlphabetIsActive] = useState(false)
+    const [popularityIsActive, setPopularityIsActive] = useState(false)
 
     const [notes, setNotes] = useState(list || data)
     console.log(notes)
@@ -39,10 +49,12 @@ function NoteList({ list }) {
         switch (n) {
             case 0: {
                 sortedList = [...noteList]; // Reset to original order
+                setAlphabetIsActive(false)
                 break
             }
             case 1: {
                 sortedList.sort((a, b) => a.name.localeCompare(b.name))
+                setAlphabetIsActive(true)
                 break
             }
             case 2: {
@@ -63,24 +75,24 @@ function NoteList({ list }) {
     return (
         <>
             <div>
-                <p>Все композиции</p>
-                <div>
-                    <span></span>
-                    <input type="text" placeholder="Найти композицию в альбоме" value={searchQuery} onChange={handleSearch} />
+                <h2 className={styles.caption}>Все композиции</h2>
+                <div className={styles.searchContainer}>
+                    <img src="/music_search.svg" alt="" />
+                    <input className={styles.searchInput} type="text" placeholder="Найти композицию в альбоме" value={searchQuery} onChange={handleSearch} />
                 </div>
-                <div>
-                    <button onClick={() => { AplhabetHandler() }}>
-                        <img src="/src/assets/images/alfavit.svg" alt="" />
+                <div className={styles.filtrationContainer}>
+                    <button className={alphabetIsActive ? styles.activeFiltration : styles.filtration} onClick={() => { AplhabetHandler() }}>
+                        <img src={alphabetIsActive ? "/alphabetActive.svg" : "/src/assets/images/alfavit.svg"} alt="" />
                         <span>по алфавиту</span>
                     </button>
-                    <button>
-                        <img src="/src/assets/images/popularity.svg" alt="" />
+                    <button className={popularityIsActive ? styles.activeFiltration : styles.filtration}>
+                        <img src={"/src/assets/images/popularity.svg"} alt="" />
                         <span>по популярности</span>
                     </button>
                 </div>
-                <ul>
+                <ul className={styles.list}>
                     {notes.map((item) => (
-                        <NoteItem key={item.id} item={item} itemName={item.name} author={item.author} src={item.src} image={item.image} />
+                        <NoteItem key={item.id} item={item} itemName={item.name} author={item.author} src={exampleMAP[item.src]} image={exampleMAP[item.img]} />
                     ))}
                 </ul>
             </div>
