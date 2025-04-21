@@ -1,4 +1,8 @@
-function NoteItem({ props: item, itemName, author, src, image }) {
+import styles from './NoteItem.module.css'
+// import exampleJPEG from '../../assets/forLibrary/example.jpeg'
+// import examplePDF from '../../assets/forLibrary/example.pdf'
+
+function NoteItem({ item, itemName, author, src, image }) {
     const downloadHandler = () => {
         const link = document.createElement('a')
         link.href = src
@@ -8,12 +12,17 @@ function NoteItem({ props: item, itemName, author, src, image }) {
     }
     return (
         <>
-            <li>
-                <div>
-                    <p>{itemName}</p>
-                    <p>{author}</p>
+            <li className={styles.NoteItem}>
+                <img className={styles.img} src={image} alt="" />
+                <div className={styles.gradient}></div>
+                <div className={styles.pContainer}>
+                    <p className={styles.itemName}>{itemName}</p>
+                    <p className={styles.author}>{author}</p>
                 </div>
-                <button onClick={downloadHandler}>Скачать</button>
+                <button className={styles.download} onClick={downloadHandler}>
+                    <img src="/downloadIcon.svg" alt="" />
+                    Скачать
+                </button>
             </li>
         </>
     )
