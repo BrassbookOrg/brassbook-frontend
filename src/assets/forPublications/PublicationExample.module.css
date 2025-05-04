@@ -1,0 +1,30 @@
+.h {
+    font-size: 46px;
+    font-family: Inter;
+    font-weight: 600;
+    color: #230B3F;
+    margin: 15px 0;
+}
+
+.pic1 {
+    margin: 15px 0;
+}
+
+.text {
+    font-size: 21px;
+    text-indent: 100px;
+    line-height: 120%;
+    margin: 15px 0;
+}
+
+.textContainer {
+    margin: 15px 0;
+}
+
+.textContainerWithPic {
+    display: flex;
+    justify-content: right;
+}
+.textContainerWithPic .text {
+    width: 600px;
+}
