@@ -25,7 +25,7 @@ function NoteAlbumList({ props }) {
                 <ul className={styles.list}>
                     {noteAlbums.map((album) => (
                         <li className={styles.listElement} key={album.id}>
-                            <Link to='librarySelected' state={{ album }}>
+                            <Link to={`${album.id}/${album.name}`} state={{ album }}>
                                 <NoteAlbum album={album} name={album.name} image={exampleMAP[album.image]} />
                             </Link>
                         </li>

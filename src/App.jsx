@@ -8,6 +8,8 @@ import User from "./pages/user/User.jsx";
 import SignUp from "./pages/signUp/SignUp.jsx";
 import Library from './pages/library/Library.jsx';
 import LibrarySelected from "./pages/library/librarySelected/LibrarySelected.jsx";
+import Publications from "./pages/publications/Publications.jsx";
+import Publication from './pages/publications/publication/Publication.jsx';
 import { useDispatch } from 'react-redux';
 import { $api } from './api/index.js';
 import { setIsAuthorized, setUser } from './store/userSlice.js';
@@ -73,7 +75,9 @@ function App() {
         <Route path="user" element={<User />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="library" element={<Library />} />
-        <Route path="library/librarySelected" element={<LibrarySelected />} />
+        <Route path="library/:id/:name" element={<LibrarySelected />} />
+        <Route path="publications" element={<Publications />} />
+        <Route path="publications/:id" element={<Publication />} />
       </Route>
     </Routes>
   );
