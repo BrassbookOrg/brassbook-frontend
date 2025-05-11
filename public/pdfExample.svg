@@ -1,0 +1,29 @@
+<svg width="72.000000" height="72.000000" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_1835_3815_dd" x="0.000000" y="0.000000" width="72.000000" height="72.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+		<clipPath id="clip1835_3815">
+			<rect id="фото" rx="11.000000" width="62.000000" height="62.000000" transform="translate(5.000000 1.000000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g filter="url(#filter_1835_3815_dd)">
+		<rect id="фото" rx="11.000000" width="62.000000" height="62.000000" transform="translate(5.000000 1.000000)" fill="#6B27FF" fill-opacity="1.000000"/>
+		<g clip-path="url(#clip1835_3815)">
+			<rect id="vuesax/bold/document-text" rx="0.000000" width="38.333332" height="38.333332" transform="translate(16.833334 13.333333)" fill="#FFFFFF" fill-opacity="0"/>
+			<path id="Vector" d="M42.33 16.18C41.65 15.5 40.46 15.96 40.46 16.91L40.46 22.73C40.46 25.16 42.53 27.18 45.05 27.18C46.63 27.2 48.83 27.2 50.71 27.2C51.66 27.2 52.16 26.08 51.5 25.41C49.1 23 44.8 18.65 42.33 16.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+			<path id="Vector" d="M50.16 29.48L45.35 29.48C41.4 29.48 38.18 26.26 38.18 22.31L38.18 17.5C38.18 16.58 37.43 15.83 36.51 15.83L29.45 15.83C24.31 15.83 20.16 19.16 20.16 25.11L20.16 39.88C20.16 45.83 24.31 49.16 29.45 49.16L42.55 49.16C47.68 49.16 51.83 45.83 51.83 39.88L51.83 31.14C51.83 30.23 51.08 29.48 50.16 29.48ZM35.16 42.08L28.5 42.08C27.81 42.08 27.25 41.51 27.25 40.83C27.25 40.14 27.81 39.58 28.5 39.58L35.16 39.58C35.85 39.58 36.41 40.14 36.41 40.83C36.41 41.51 35.85 42.08 35.16 42.08ZM38.5 35.41L28.5 35.41C27.81 35.41 27.25 34.84 27.25 34.16C27.25 33.48 27.81 32.91 28.5 32.91L38.5 32.91C39.18 32.91 39.75 33.48 39.75 34.16C39.75 34.84 39.18 35.41 38.5 35.41Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+			<g opacity="0.000000"/>
+		</g>
+	</g>
+</svg>

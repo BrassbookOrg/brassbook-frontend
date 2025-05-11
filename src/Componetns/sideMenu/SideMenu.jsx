@@ -137,6 +137,10 @@ function SideMenu({activeSection}) {
           </svg>
           Публикации
         </Link>
+        <Link className={`${classes['menu__item']} ${activeSection === 'admin' ? classes['menu__item_active'] : ''}`} to='/adminPanel'>
+          
+          Администратор
+        </Link>
       </ul>
       <p className={classes.signin__backlink}>Мои альбомы</p>
       <ul className={classes.ul__menu2}>
