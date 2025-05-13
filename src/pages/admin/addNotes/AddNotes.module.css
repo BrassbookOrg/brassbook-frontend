@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+.contentContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px 15px;
+}
+
+.AddNotes {
+    display: flex;
+}
+
+.h2 {
+    font-family: 'Nunito';
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.backButton {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    align-items: center;
+    width: 285px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    font-weight: 700;
+}
+
+.span {
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 400;
+}
+
+.submitButton {
+    background: linear-gradient(rgb(238, 221, 81), rgb(238, 175, 81));
+    border-radius: 50vh;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Nunito';
+    font-weight: 800;
+}
+
+.textInput {
+    font-size: 16px;
+    font-family: 'Inter';
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #F4F4F6;
+}
+
+.fileInput {
+    display: none;
+}
+
+.dropZone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #F4F4F6;
+}
+
+.pdfInfo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.imageContainer {
+    background-color: #f4f4f4;
+    width: 130px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(35, 11, 63, 0.4);
+}
