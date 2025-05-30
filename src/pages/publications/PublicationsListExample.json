@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "title": "Статья 1, текст далее для проверки адаптивности высоты у других элементов",
+        "titleImage": "firstExample",
+        "content": "contentExample"
+    },
+    {
+        "id": "2",
+        "title": "Статья 2",
+        "titleImage": "secondExample",
+        "content": "contentExample"
+    },
+    {
+        "id": "3",
+        "title": "Статья 3",
+        "titleImage": "firstExample",
+        "content": "contentExample"
+    }
+]

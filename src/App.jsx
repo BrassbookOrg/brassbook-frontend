@@ -8,9 +8,20 @@ import User from "./pages/user/User.jsx";
 import SignUp from "./pages/signUp/SignUp.jsx";
 import Library from './pages/library/Library.jsx';
 import LibrarySelected from "./pages/library/librarySelected/LibrarySelected.jsx";
+import Publications from "./pages/publications/Publications.jsx";
+import Publication from './pages/publications/publication/Publication.jsx';
+import Admin from './pages/admin/Admin.jsx';
+import AddNotes from './pages/admin/addNotes/AddNotes.jsx';
+import AddMusic from './pages/admin/addMusic/AddMusic.jsx';
+import AddArticle from './pages/admin/addArticle/AddArticle.jsx';
+import MusicManagement from './pages/admin/musicManagement/MusicManagement.jsx';
+import NotesManagement from './pages/admin/notesManagement/NotesManagement.jsx';
+import ArticleManagement from './pages/admin/articleManagement/ArticleManagement.jsx';
 import { useDispatch } from 'react-redux';
 import { $api } from './api/index.js';
 import { setIsAuthorized, setUser } from './store/userSlice.js';
+
+
 
 
 function App() {
@@ -73,7 +84,16 @@ function App() {
         <Route path="user" element={<User />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="library" element={<Library />} />
-        <Route path="library/librarySelected" element={<LibrarySelected />} />
+        <Route path="library/:id/:name" element={<LibrarySelected />} />
+        <Route path="publications" element={<Publications />} />
+        <Route path="publications/:id" element={<Publication />} />
+        <Route path='adminPanel' element={<Admin />} />
+        <Route path='adminPanel/addNotes' element={<AddNotes />}/>
+        <Route path='adminPanel/addMusic' element={<AddMusic />}/>
+        <Route path='adminPanel/addArticle' element={<AddArticle />}/>
+        <Route path='adminPanel/musicManagement' element={<MusicManagement />}/>
+        <Route path='adminPanel/notesManagement' element={<NotesManagement />}/>
+        <Route path='adminPanel/articleManagement' element={<ArticleManagement />}/>
       </Route>
     </Routes>
   );

@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+.Publications {
+    display: flex;
+    gap: 1%;
+}
+
+.contentContainer {
+    padding: 40px 10px;
+}

@@ -50,6 +50,19 @@
 
 .list {
     display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 10px 1%;
+    grid-template-columns: repeat(auto-fit, calc(97% / 4));
+    /* justify-content: space-between; */
+}
+
+@media (max-width: 820px) {
+    .list {
+        grid-template-columns: repeat(auto-fit, calc(98% / 3));
+    }
+}
+
+@media (max-width: 425px) {
+    .list {
+        grid-template-columns: repeat(auto-fit, calc(99% /2));
+    }
 }

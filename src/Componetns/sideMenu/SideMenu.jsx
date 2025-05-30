@@ -108,7 +108,7 @@ function SideMenu({activeSection}) {
           </svg>
           Библиотека
         </Link>
-        <Link className={classes['menu__item']} to='#'>
+        <Link className={`${classes['menu__item']} ${activeSection === 'publications' ? classes['menu__item_active'] : ''}`} to='/publications'>
           <svg
             width="24.000000"
             height="24.000000"
@@ -136,6 +136,10 @@ function SideMenu({activeSection}) {
             <g opacity="0.000000"/>
           </svg>
           Публикации
+        </Link>
+        <Link className={`${classes['menu__item']} ${activeSection === 'admin' ? classes['menu__item_active'] : ''}`} to='/adminPanel'>
+          
+          Администратор
         </Link>
       </ul>
       <p className={classes.signin__backlink}>Мои альбомы</p>

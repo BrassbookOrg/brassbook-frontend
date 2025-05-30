@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.backButton {
+    display: flex;
+    font-size: 14px;
+    color: rgb(35, 11, 63, 0.3);
+    align-content: center;
+}
+
+.Publication {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+}
+
+.contentContainer {
+    background-color: #FFFFFF;
+    padding: 40px 20px
+}

@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+.NoteItem {
+    position: relative;
+    /* width: 270px; */
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+}
+
+.pContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+    object-position: 50% 50%;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.itemName {
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.author {
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.download {
+    width: max-content;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.3); 
+    /* с градиаентом выглядело не по шаблону, исправить */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    border-radius: 5px;
+
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+
+    z-index: 3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.searchContainer {
+    background-color: #FFFFFF;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.searchInput {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.filtration {
+    background-color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+.activeFiltration {
+    background-color: #6B27FF;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.filtrationContainer {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0 10px 0;
+}
+
+.caption {
+    margin: 15px 0;
+}
+
+.list {
+    display: grid;
+    grid-gap: 10px 1%;
+    grid-template-columns: repeat(auto-fit, calc(97% / 4));
+    /* justify-content: space-between; */
+}
+
+@media (max-width: 820px) {
+    .list {
+        grid-template-columns: repeat(auto-fit, calc(98% / 3));
+    }
+}
+
+@media (max-width: 425px) {
+    .list {
+        grid-template-columns: repeat(auto-fit, calc(99% /2));
+    }
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F6;
+    border-radius: 10px;
+    padding: 10px;
+}
