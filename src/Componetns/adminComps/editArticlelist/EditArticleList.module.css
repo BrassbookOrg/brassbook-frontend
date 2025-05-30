@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+.h {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.caption {
+    font-size: 16px;
+    color: #534068;
+    margin-bottom: 15px;
+}
+
+.searchContainer {
+    border: 1px;
+    border-color: rgb(35, 11, 63, 0.3);
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 8px;
+    margin: 10px 0;
+    width: fit-content;
+}
+.searchInput {
+    font-size: 14px;
+    width: 700px;
+}
+.searchInput::placeholder {
+    color:rgb(35, 11, 63, 0.3)
+}
+
+.filtration {
+    background-color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+.activeFiltration {
+    background-color: #6B27FF;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.filtrationContainer {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0 10px 0;
+}
+
+.item {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    width: fit-content;
+    position: relative;
+}
+
+.title {
+    font-size: 20px;
+    font-family: Nunito;
+    color: #230B3F;
+    line-height: 120%;
+    padding: 10px;
+}
+
+.titleImage {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 2;
+    border-radius: 10px 10px 0 0;
+}
+
+.ul {
+    display: grid;
+    grid-gap: 10px 1%;
+    grid-template-columns: repeat(auto-fit, calc(98% / 3));
+    /* justify-content: space-between; */
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F6;
+    border-radius: 10px;
+    padding: 10px;
+}

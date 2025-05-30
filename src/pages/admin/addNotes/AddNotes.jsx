@@ -1,7 +1,7 @@
 import SideMenu from "../../../Componetns/sideMenu/SideMenu"
 import styles from "./AddNotes.module.css"
 import { useNavigate } from "react-router-dom"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import arrow from "../../../../public/backArrow.svg"
 import pdfExampleImage from "../../../../public/pdfExample.svg"
 import tic from "../../../../public/tic.svg"

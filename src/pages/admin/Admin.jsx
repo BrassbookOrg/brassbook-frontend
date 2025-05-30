@@ -16,23 +16,23 @@ function Admin() {
                             <img src="../../../public/add-music.svg" alt="" />
                             Добавить Произведение
                         </Link>
-                        <button className={styles.button}>
+                        <Link className={styles.button} to={'./musicManagement'}>
                             <img src="../../../public/redact-music.svg" alt="" />
                             Управление Произведениями
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.wrapper}>
                     <h3 className={styles.h3}>СТАТЬИ</h3>
-                    <div className={styles.buttons}>
-                        <button className={styles.button}>
+                    <div className={styles.buttons} >
+                        <Link className={styles.button} to='./addArticle'>
                             <img src="../../../public/add-article.svg" alt="" />
                             Добавить Статью
-                        </button>
-                        <button className={styles.button}>
+                        </Link>
+                        <Link className={styles.button} to='./articleManagement'>
                             <img src="../../../public/redact-article.svg" alt="" />
                             Управление Статьями
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.wrapper}>
@@ -42,10 +42,10 @@ function Admin() {
                             <img src="../../../public/add-notes.svg" alt="" />
                             Добавить Ноты
                         </Link>
-                        <button className={styles.button}>
+                        <Link className={styles.button} to='./notesManagement'>
                             <img src="../../../public/redact-notes.svg" alt="" />
                             Управление Нотами
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
